@@ -1,0 +1,10 @@
+---
+- name: Download netdata version {{ netdata_version }}
+  get_url:
+    url: "{{ netdata_download_url }}"
+    dest: "{{ netdata_download_script_path }}"
+
+- name: Install and run netdata
+  shell: "{{ netdata_download_script_path }} --accept"
+  args:
+    chdir: "{{ netdata_installer_temp_dir }}"

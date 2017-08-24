@@ -1,0 +1,10 @@
+---
+- name: Download netdata latest version
+  get_url:
+    url: "{{ netdata_kickstart_download_url }}"
+    dest: "{{ netdata_kickstart_script_path }}"
+
+- name: Install and run netdata using kickstart script
+  shell: "{{ netdata_kickstart_script_path }} --non-interactive"
+  args:
+    chdir: "{{ netdata_installer_temp_dir }}"

@@ -1,6 +1,6 @@
 galaxy_info:
   author: Avi Shefi
-  description: Install netdata
+  description: Install netdata using pre-packaged *.run installer (makeshell)
 
   license: MIT
 

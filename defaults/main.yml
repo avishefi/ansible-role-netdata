@@ -1,2 +1,13 @@
 ---
-# defaults file for netdata
+# version can be either 'latest' or a specific version, e.g. v1.7.0-171-ga5a21f25-x86_64-20170824-062903
+netdata_version: "latest"
+netdata_base_url: "https://raw.githubusercontent.com/firehol/binary-packages/master"
+netdata_installer_tmp_dir: "/tmp"
+
+netdata_kickstart_download_url: "https://my-netdata.io/kickstart-static64.sh"
+netdata_kickstart_script: "kickstart-static64.sh"
+netdata_kickstart_script_path: "{{ netdata_installer_tmp_dir }}/{{ netdata_installer_script_filename }}"
+
+netdata_download_filename: "netdata-{{ netdata_version }}.gz.run"
+netdata_download_url: "{{ netdata_base_url }}/{{ netdata_download_filename }}"
+netdata_download_script_path: "{{ netdata_installer_tmp_dir }}/{{ netdata_download_filename }}"
