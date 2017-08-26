@@ -24,7 +24,7 @@ describe directory(netdata_directory) do
   it { should be_directory }
 end
 
-describe service(netdata_service) do
+describe systemd_service(netdata_service) do
   it { should be_installed }
   it { should be_enabled }
   it { should be_running }

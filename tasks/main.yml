@@ -14,8 +14,8 @@
 
 - name: Download latest netdata
   include: netdata_latest.yml
-  when: netdata_version == 'latest' and download_and_install
+  when: (netdata_version == 'latest' and download_and_install)
 
 - name: Install netdata version {{ netdata_version }}
   include: netdata_version.yml
-  when: netdata_version != 'latest' and download_and_install
+  when: (netdata_version != 'latest' and download_and_install)
