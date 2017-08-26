@@ -21,7 +21,11 @@ install:
   - pip install ansible-lint
 
   # Make sure Ansible finds our role
-  - "printf '[defaults]\nroles_path = ../' > ansible.cfg"
+  - "cat <<EOF >ansible.cfg
+[defaults]
+roles_path    = ../
+EOF"
+
 
 script:
   # Ansible syntax check
