@@ -25,8 +25,10 @@ before_install:
   - sudo pip install ndg-httpsclient
 
   # install ruby & inspec
-  - sudo apt-get -y install ruby
-  - curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec
+  - docker pull chef/inspec
+  - alias inspec='docker run -it --rm -v $(pwd):/share chef/inspec'
+  #- sudo apt-get -y install ruby
+  #- curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec
 
 
 install:
