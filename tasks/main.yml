@@ -21,7 +21,7 @@
   when: (netdata_version != 'latest' and download_and_install)
 
 
-- name: Ensure configuratio directory exists
+- name: Ensure configuration directory exists
   file:
     name: "{{ netdata_conf_dir }}"
     state: directory

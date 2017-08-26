@@ -38,11 +38,14 @@ install:
 
 
 script:
-  # Ansible syntax check
+  # syntax check & linting
   - ansible-playbook -i tests/inventory --connection=local tests/test.yml --syntax-check
-  # Install role
-  - ansible-playbook -i tests/inventory --connection=local tests/test.yml -vvvvv
-
   - ansible-lint .
 
+  # install role
+  - ansible-playbook -i tests/inventory --connection=local tests/test.yml -vvvvv
+
+  # test
+  - echo "Waiting 10 seconds for netdata to start..." && sleep 10
+  - echo "Running netdata InSpec tests"
   - inspec exec tests/default
