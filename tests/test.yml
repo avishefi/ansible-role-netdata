@@ -1,6 +1,5 @@
 ---
 - hosts: all
-  connection: local
   become: true
   roles:
     - { role: ansible-role-netdata }

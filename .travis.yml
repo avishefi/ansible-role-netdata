@@ -27,10 +27,10 @@ install:
 
 script:
   # Ansible syntax check
-  - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
+  - ansible-playbook -i tests/inventory tests/test.yml --connection=local --syntax-check
 
   # Install role
-  - ansible-playbook -i tests/inventory tests/test.yml -vvvvv
+  - ansible-playbook -i tests/inventory tests/test.yml --connection-local -vvvvv
 
   # lint
   - ansible-lint .
