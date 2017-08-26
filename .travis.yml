@@ -6,6 +6,7 @@ python: "2.7"
 env:
   global:
     - ANSIBLE_CONFIG=tests/ansible.cfg
+    - GEM_HOME=$HOME/.gems
   matrix:
   - ANSIBLE_VERSION=latest
   #- ANSIBLE_VERSION=2.3.2.0
@@ -25,7 +26,8 @@ before_install:
   - sudo pip install ndg-httpsclient
 
   # install ruby & inspec
-  - sudo apt-get -y install ruby ruby-dev make gcc
+  - sudo apt-get -y install ruby ruby-dev rubygems make gcc
+  - gem env
   - sudo gem install inspec
   #- curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec
 
