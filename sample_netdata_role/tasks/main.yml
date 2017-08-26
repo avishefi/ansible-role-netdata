@@ -1,0 +1,23 @@
+---
+- name: Copy netdata configuration
+  template:
+    src: netdata.conf.j2
+    dest: "{{ netdata_conf }}"
+
+- name: Copy logrotate
+  template:
+    src: netdata.logrotate.j2
+    dest: "{{ netdata_logrotate }}"
+
+- name: Copy systemd service
+  template:
+    src: netdata.service.j2
+    dest: "{{ netdata_systemd_unit }}"
+
+
+- name: Restart netdata
+  systemd:
+    name: "{{ netdata_service_name }}"
+    state: restarted
+    enabled: true
+

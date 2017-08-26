@@ -1,0 +1,5 @@
+---
+netdata_conf: "/etc/netdata/netdata.conf"
+netdata_logrotate: "/etc/logrotate.d/netdata"
+netdata_service_name: "netdata.service"
+netdata_systemd_unit: "/etc/systemd/system/{{ netdata_service_name }}"
