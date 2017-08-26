@@ -20,7 +20,7 @@ before_install:
   - sudo apt-get update -qq
   
   # update ubuntu CA
-  - sudo apt-get install ca-certificates -qq
+  - sudo apt-get install -y ca-certificates
   - sudo update-ca-certificates
 
 
