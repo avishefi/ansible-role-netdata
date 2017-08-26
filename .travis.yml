@@ -25,8 +25,9 @@ before_install:
   - sudo pip install ndg-httpsclient
 
   # install ruby & inspec
-  - sudo apt-get -y install ruby
-  - curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec
+  - sudo apt-get -y install ruby ruby-devel make gcc
+  - sudo gem install inspec
+  #- curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec
 
 
 install:
