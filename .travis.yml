@@ -18,6 +18,11 @@ branches:
 before_install:
   # update quietly
   - sudo apt-get update -qq
+  
+  # update ubuntu CA
+  - sudo apt-get install ca-certificates -qq
+  - sudo update-ca-certificates
+
 
 install:
   - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible; else pip install ansible==$ANSIBLE_VERSION; fi
@@ -27,10 +32,10 @@ install:
 
 script:
   # Ansible syntax check
-  - ansible-playbook -i tests/inventory tests/test.yml --connection=local --syntax-check
+  - ansible-playbook -i tests/inventory --connection=local tests/test.yml --syntax-check
 
   # Install role
-  - ansible-playbook -i tests/inventory tests/test.yml --connection-local -vvvvv
+  - ansible-playbook -i tests/inventory --connection=local tests/test.yml -vvvvv
 
   # lint
   - ansible-lint .
