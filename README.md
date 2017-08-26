@@ -5,7 +5,9 @@ ansible-role-netdata
 
 Ansible role to install & configure [netdata](https://github.com/firehol/netdata). By default installs the latest netdata version using the kickstart script, can be customized by overriding the variable `netdata_version`.
 
-Note: This role does not compile netdata, it just downloads and executes the netdata self-extracting installation archive. The role is tested on Ubuntu only, however it uses the netdata installer which is intended to work on most any Linux systems.
+This role does not compile netdata, it just downloads and executes the netdata self-extracting installation archive intended to work on most any Linux systems.
+
+Tested on Ubuntu using Ansible 2.1.6.0, 2.2.2.0 and latest versions.
 
 Configuration Files
 -------------------
