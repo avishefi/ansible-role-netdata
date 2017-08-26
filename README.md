@@ -35,6 +35,20 @@ Example Playbook
   - { role: ansible-role-netdata }
 ```
 
+Take a look also on the testing playbook: `tests/test.yml`
+
+Testing
+-------
+
+Vagrant
+-------
+
+Use the command `vagrant up` to bring up netdata on your local machine on <http://localhost:19999/>.
+
+The `Vagrantfile` supports a netdata version argument passed as an environment variable, for example: `NETDATA_VERSION=vx.y.z-NNN-<hash> vagrant up`. Check the [binary-packages GitHub repository](https://github.com/firehol/binary-packages) for the list of netdata versions.
+
+The default value for `NETDATA_VERSION` is `latest`.
+
 License
 -------
 
