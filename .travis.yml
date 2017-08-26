@@ -6,7 +6,6 @@ python: "2.7"
 env:
   global:
     - ANSIBLE_CONFIG=tests/ansible.cfg
-    - GEM_HOME=$HOME/.gems
   matrix:
   - ANSIBLE_VERSION=latest
   #- ANSIBLE_VERSION=2.3.2.0
