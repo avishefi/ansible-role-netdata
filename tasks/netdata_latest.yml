@@ -10,3 +10,4 @@
   args:
     chdir: "{{ netdata_installer_tmp_dir }}"
   when: download_and_install
+  become: true

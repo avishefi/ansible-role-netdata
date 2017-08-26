@@ -20,14 +20,15 @@ before_install:
   # update quietly
   - sudo apt-get update -qq
 
-  # update SSL libraries
+  # update SSL libraries to support SNI
   - sudo apt-get -y install python-urllib3 python-openssl python-pyasn1
   - sudo pip install ndg-httpsclient
 
-  # install ruby & inspec
-  - docker pull chef/inspec
+  # alias inspec using docker
   - shopt -s expand_aliases
+  - docker pull chef/inspec
   - alias inspec='docker run -it --rm -v $(pwd):/share chef/inspec'
+  # install ruby & inspec
   #- sudo apt-get -y install ruby
   #- curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec
 
