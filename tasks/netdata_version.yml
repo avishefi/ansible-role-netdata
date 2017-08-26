@@ -5,6 +5,6 @@
     dest: "{{ netdata_download_script_path }}"
 
 - name: Install and run netdata
-  shell: "{{ netdata_download_script_path }} --accept"
+  command: "sh {{ netdata_download_script_path }} --accept"
   args:
-    chdir: "{{ netdata_installer_temp_dir }}"
+    chdir: "{{ netdata_installer_tmp_dir }}"

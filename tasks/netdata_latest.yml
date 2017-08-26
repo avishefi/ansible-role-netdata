@@ -5,6 +5,7 @@
     dest: "{{ netdata_kickstart_script_path }}"
 
 - name: Install and run netdata using kickstart script
-  shell: "{{ netdata_kickstart_script_path }} --non-interactive"
+  command: "sh {{ netdata_kickstart_script_path }} --non-interactive"
   args:
-    chdir: "{{ netdata_installer_temp_dir }}"
+    chdir: "{{ netdata_installer_tmp_dir }}"
+    #creates: "{{ netdata_provisioned_flag }}"

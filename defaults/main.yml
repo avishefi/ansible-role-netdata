@@ -3,10 +3,11 @@
 netdata_version: "latest"
 netdata_base_url: "https://raw.githubusercontent.com/firehol/binary-packages/master"
 netdata_installer_tmp_dir: "/tmp"
+netdata_provisioned_flag: "/opt/netdata.provisioned"
 
 netdata_kickstart_download_url: "https://my-netdata.io/kickstart-static64.sh"
-netdata_kickstart_script: "kickstart-static64.sh"
-netdata_kickstart_script_path: "{{ netdata_installer_tmp_dir }}/{{ netdata_installer_script_filename }}"
+netdata_kickstart_script_filename: "kickstart-static64.sh"
+netdata_kickstart_script_path: "{{ netdata_installer_tmp_dir }}/{{ netdata_kickstart_script_filename }}"
 
 netdata_download_filename: "netdata-{{ netdata_version }}.gz.run"
 netdata_download_url: "{{ netdata_base_url }}/{{ netdata_download_filename }}"
