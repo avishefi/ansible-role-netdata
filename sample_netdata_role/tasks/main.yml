@@ -7,7 +7,7 @@
 - name: Copy logrotate
   template:
     src: netdata.logrotate.j2
-    dest: "{{ netdata_logrotate }}"
+    dest: "{{ netdata_logrotate_conf }}"
 
 - name: Copy systemd service
   template:

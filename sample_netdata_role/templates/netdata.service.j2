@@ -4,15 +4,15 @@ After=network.target httpd.service squid.service nfs-server.service mysqld.servi
 
 [Service]
 Type=simple
-User=netdata
-Group=netdata
-ExecStart=/usr/sbin/netdata -D
+User={{ netdata_user }}
+Group={{ netdata_group }}
+ExecStart={{ netdata_binary }} -D
 
 # The minimum netdata Out-Of-Memory (OOM) score.
 # netdata (via [global].OOM score in netdata.conf) can only increase the value set here.
 # To decrease it, set the minimum here and set the same or a higher value in netdata.conf.
 # Valid values: -1000 (never kill netdata) to 1000 (always kill netdata).
-OOMScoreAdjust=0
+OOMScoreAdjust={{ netdata_oom_score }}
 
 # saving a big db on slow disks may need some time
 TimeoutStopSec=60

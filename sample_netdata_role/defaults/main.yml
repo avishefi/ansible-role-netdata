@@ -1,5 +1,13 @@
 ---
 netdata_conf: "/etc/netdata/netdata.conf"
-netdata_logrotate: "/etc/logrotate.d/netdata"
+
+netdata_logs: "/var/log/netdata"
+netdata_logrotate_conf: "/etc/logrotate.d/netdata"
+
 netdata_service_name: "netdata.service"
 netdata_systemd_unit: "/etc/systemd/system/{{ netdata_service_name }}"
+
+netdata_user: "netdata"
+netdata_group: "netdata"
+netdata_binary: "/usr/sbin/netdata"
+netdata_oom_score: "0"
