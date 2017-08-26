@@ -48,4 +48,4 @@ script:
   - ansible-lint .
 
   # InSpec
-  - inspec exec tests/default
+  - sudo inspec exec tests/default
