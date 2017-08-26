@@ -16,7 +16,8 @@ netdata_download_url: "{{ netdata_base_url }}/{{ netdata_download_filename }}"
 netdata_download_script_path: "{{ netdata_installer_tmp_dir }}/{{ netdata_download_filename }}"
 
 
-netdata_conf: "/etc/netdata/netdata.conf"
+netdata_conf_dir: "/etc/netdata"
+netdata_conf: "{{ netdata_conf_dir }}/netdata.conf"
 
 netdata_logs: "/var/log/netdata"
 netdata_logrotate_conf: "/etc/logrotate.d/netdata"

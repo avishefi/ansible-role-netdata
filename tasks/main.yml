@@ -21,6 +21,11 @@
   when: (netdata_version != 'latest' and download_and_install)
 
 
+- name: Ensure configuratio directory exists
+  file:
+    name: "{{ netdata_conf_dir }}"
+    state: directory
+
 - name: Copy netdata configuration
   template:
     src: netdata.conf.j2
