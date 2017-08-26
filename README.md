@@ -43,7 +43,7 @@ Testing
 Vagrant
 -------
 
-Use the command `vagrant up` to bring up netdata on your local machine on <http://localhost:19999/>.
+Use the command `vagrant up` to bring up a guest VirtualBox machine with netdata installed using this role. Upon completion, netdata will be available at <http://localhost:19999/>.
 
 The `Vagrantfile` supports a netdata version argument passed as an environment variable, for example: `NETDATA_VERSION=vx.y.z-NNN-<hash> vagrant up`. Check the [binary-packages GitHub repository](https://github.com/firehol/binary-packages) for the list of netdata versions.
 
