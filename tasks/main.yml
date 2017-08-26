@@ -1,8 +1,21 @@
 ---
+- name: Check if netdata is already installed
+  stat:
+    path: "{{ netdata_installation_dir }}"
+  register: netdata_dir
+
+- name: Determine if to download and install
+  set_fact:
+    download_and_install: "{{ (netdata_force_install == true) | ternary(True, not (netdata_dir.stat.isdir is defined and netdata_dir.stat.isdir)) }}"
+
+- debug:
+    msg: "Downloading and installing: {{ download_and_install }}"
+
+
 - name: Download latest netdata
   include: netdata_latest.yml
-  when: netdata_version == 'latest'
+  when: netdata_version == 'latest' and download_and_install
 
 - name: Install netdata version {{ netdata_version }}
   include: netdata_version.yml
-  when: netdata_version != 'latest'
+  when: netdata_version != 'latest' and download_and_install

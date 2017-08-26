@@ -34,7 +34,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.galaxy_roles_path = rolesBasePath
     ansible.raw_arguments = [ "--connection=local" ]
     ansible.extra_vars = {
-      netdata_version: netdataVersion
+      netdata_version: netdataVersion,
+      #netdata_force_install: false
     }
     #ansible.verbose = "-vvvvv"
   end

@@ -3,7 +3,9 @@
 netdata_version: "latest"
 netdata_base_url: "https://raw.githubusercontent.com/firehol/binary-packages/master"
 netdata_installer_tmp_dir: "/tmp"
+netdata_installation_dir: "/opt/netdata"
 netdata_provisioned_flag: "/opt/netdata.provisioned"
+netdata_force_install: true
 
 netdata_kickstart_download_url: "https://my-netdata.io/kickstart-static64.sh"
 netdata_kickstart_script_filename: "kickstart-static64.sh"

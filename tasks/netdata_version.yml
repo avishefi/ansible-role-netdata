@@ -3,8 +3,10 @@
   get_url:
     url: "{{ netdata_download_url }}"
     dest: "{{ netdata_download_script_path }}"
+  when: download_and_install
 
 - name: Install and run netdata
   command: "sh {{ netdata_download_script_path }} --accept"
   args:
     chdir: "{{ netdata_installer_tmp_dir }}"
+  when: download_and_install

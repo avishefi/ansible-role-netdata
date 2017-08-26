@@ -18,9 +18,10 @@ Requirements
 Role Variables
 --------------
 
-The variable `netdata_version` can be either `latest` or a valid netdata version string: `vN.N.N-xxx-<hash>`.
+The variable `netdata_version` can be either `latest` or a valid netdata version string: `vN.N.N-xxx-<hash>` (default is `latest`).
 
 The following default variables are also configurable:
+- `netdata_force_install` controls installation even when netdata is already installed (defaults to `true`)
 - `netdata_kickstart_download_url` is the kickstart shell script to install the latest netdata version
 - `netdata_base_url` is the base binary packages GitHub URL
 - `netdata_installer_tmp_dir` is the temporary location where the kickstart script or makeshell *.run file is downloaded to, default: `/tmp` (assumes it already exists)

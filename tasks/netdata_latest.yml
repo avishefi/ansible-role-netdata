@@ -3,9 +3,10 @@
   get_url:
     url: "{{ netdata_kickstart_download_url }}"
     dest: "{{ netdata_kickstart_script_path }}"
+  when: download_and_install
 
 - name: Install and run netdata using kickstart script
   command: "sh {{ netdata_kickstart_script_path }} --non-interactive"
   args:
     chdir: "{{ netdata_installer_tmp_dir }}"
-    #creates: "{{ netdata_provisioned_flag }}"
+  when: download_and_install
