@@ -1,9 +1,0 @@
----
-galaxy_info:
-  author: sample
-  description: netdata custom role
-  company: sample
-  min_ansible_version: 1.2
-
-dependencies:
-  - { role: ansible-role-netdata }

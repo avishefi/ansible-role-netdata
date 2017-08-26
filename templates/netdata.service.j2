@@ -1,0 +1,15 @@
+[Unit]
+Description=Netdata realtime monitoring
+After=network.target httpd.service squid.service nfs-server.service mysqld.service mysql.service named.service postfix.service
+
+[Service]
+Type=simple
+User={{ netdata_user }}
+Group={{ netdata_group }}
+OOMScoreAdjust={{ netdata_oom_score }}
+ExecStart={{ netdata_binary }} -D
+TimeoutStopSec={{ netdata_systemd_timeout_stop_sec }}
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

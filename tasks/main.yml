@@ -19,3 +19,24 @@
 - name: Install netdata version {{ netdata_version }}
   include: netdata_version.yml
   when: (netdata_version != 'latest' and download_and_install)
+
+
+- name: Copy netdata configuration
+  template:
+    src: netdata.conf.j2
+    dest: "{{ netdata_conf }}"
+
+- name: Copy logrotate
+  template:
+    src: netdata.logrotate.j2
+    dest: "{{ netdata_logrotate_conf }}"
+
+- name: Configure netdata
+  include: "configure-{{ ansible_os_family }}.yml"
+  static: no
+
+- name: Restart netdata
+  service:
+    name: "{{ netdata_service_name }}"
+    state: restarted
+    enabled: yes

@@ -14,3 +14,20 @@ netdata_kickstart_script_path: "{{ netdata_installer_tmp_dir }}/{{ netdata_kicks
 netdata_download_filename: "netdata-{{ netdata_version }}.gz.run"
 netdata_download_url: "{{ netdata_base_url }}/{{ netdata_download_filename }}"
 netdata_download_script_path: "{{ netdata_installer_tmp_dir }}/{{ netdata_download_filename }}"
+
+
+netdata_conf: "/etc/netdata/netdata.conf"
+
+netdata_logs: "/var/log/netdata"
+netdata_logrotate_conf: "/etc/logrotate.d/netdata"
+
+netdata_service_name: "netdata"
+netdata_systemd_unit: "/etc/systemd/system/{{ netdata_service_name }}.service"
+netdata_initd_unit: "/etc/init.d/{{ netdata_service_name }}"
+
+
+netdata_user: "netdata"
+netdata_group: "netdata"
+netdata_binary: "/usr/sbin/netdata"
+netdata_oom_score: 0
+netdata_systemd_timeout_stop_sec: 60

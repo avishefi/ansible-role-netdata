@@ -1,0 +1,5 @@
+---
+#- name: Copy init.d service
+#  template:
+#    src: netdata.initd.j2
+#    dest: "{{ netdata_initd_unit }}"

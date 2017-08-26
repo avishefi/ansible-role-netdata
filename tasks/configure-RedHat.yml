@@ -1,0 +1,5 @@
+---
+- name: Copy systemd service
+  template:
+    src: netdata.service.j2
+    dest: "{{ netdata_systemd_unit }}"

@@ -1,10 +1,9 @@
 {{ netdata_logs }}/*.log {
+	rotate 14
 	daily
 	missingok
-	rotate 14
-	compress
-	delaycompress
 	notifempty
+	compress
 	sharedscripts
 	postrotate
 		/bin/kill -HUP `pidof netdata 2>/dev/null` 2>/dev/null || true

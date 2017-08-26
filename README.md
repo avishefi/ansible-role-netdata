@@ -5,16 +5,14 @@ ansible-role-netdata
 
 Ansible role to install & configure [netdata](https://github.com/firehol/netdata). By default installs the latest netdata version using the kickstart script, can be customized by overriding the variable `netdata_version`.
 
-This role does not compile netdata, it just downloads and executes the netdata self-extracting installation archive intended to work on most any Linux systems.
+This role does not compile netdata, it downloads and executes the netdata self-extracting installation archive intended to work on most any Linux systems.
 
 Tested on Ubuntu using Ansible 2.1.6.0, 2.2.2.0 and latest versions.
 
 Configuration Files
 -------------------
 
-The netdata configuration files are deployed by the netdata [makeself](http://makeself.io/) self-extracting installation script and are therefore not provided by this role. You should create a role/playbook that runs `ansible-role-netdata` and then deploys your netdata version-controlled configuration files.
-
-A sample role which can be copied and used, together with netdata configuration template files, can be found under the `sample_netdata_role` directory on the `ansible-role-netdata` git repository.
+The netdata configuration files are deployed by the netdata [makeself](http://makeself.io/) self-extracting installation script. To customize the file create a role/playbook that runs `ansible-role-netdata` and then deploys your netdata version-controlled configuration files.
 
 Requirements
 ------------
