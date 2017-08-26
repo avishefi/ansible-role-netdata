@@ -26,6 +26,7 @@ before_install:
 
   # install ruby & inspec
   - docker pull chef/inspec
+  - shopt -s expand_aliases
   - alias inspec='docker run -it --rm -v $(pwd):/share chef/inspec'
   #- sudo apt-get -y install ruby
   #- curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec
