@@ -1,6 +1,8 @@
 ansible-role-netdata
 =========
 
+[![Build Status](https://travis-ci.org/avishefi/ansible-role-netdata.svg?branch=master)](https://travis-ci.org/avishefi/ansible-role-netdata)
+
 Ansible role to install & configure [netdata](https://github.com/firehol/netdata). By default installs the latest netdata version using the kickstart script, can be customized by overriding the variable `netdata_version`.
 
 Note: This role does not compile netdata, it just downloads and executes the netdata self-extracting installation archive.
