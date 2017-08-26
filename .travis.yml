@@ -5,6 +5,9 @@ python:
   - "2.7"
 
 env:
+  global:
+    - ANSIBLE_CONFIG=tests/ansible.cfg
+  matrix:
   - ANSIBLE_VERSION=latest
   - ANSIBLE_VERSION=2.2.2.0
 
@@ -19,12 +22,7 @@ before_install:
 install:
   - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible; else pip install ansible==$ANSIBLE_VERSION; fi
   - pip install ansible-lint
-
-  # Make sure Ansible finds our role
-  - "cat <<EOF >ansible.cfg
-[defaults]
-roles_path    = ../
-EOF"
+  - ansible --version
 
 
 script:
