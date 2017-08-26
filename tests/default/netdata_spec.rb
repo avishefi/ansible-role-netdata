@@ -13,7 +13,6 @@ netdata_url = 'http://localhost:19999/'
 
 describe user(netdata_user) do
   it { should exist }
-  its('home') { should eq '/opt/netdata'}
 end
 
 describe group(netdata_group) do
@@ -24,7 +23,7 @@ describe directory(netdata_directory) do
   it { should be_directory }
 end
 
-describe systemd_service(netdata_service) do
+describe service(netdata_service) do
   it { should be_installed }
   it { should be_enabled }
   it { should be_running }
