@@ -17,11 +17,12 @@ branches:
 
 before_install:
   # update quietly
-  - sudo apt-get update -qq
+  - apt-get update -qq
   
   # update ubuntu CA
-  - sudo apt-get install -y ca-certificates
-  - sudo update-ca-certificates
+  - apt-get install -y ca-certificates urllib3 pyOpenSSL pyasn1
+  - pip install ndg-httpsclient
+  - update-ca-certificates
 
 
 install:
