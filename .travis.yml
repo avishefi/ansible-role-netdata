@@ -1,15 +1,16 @@
 ---
 sudo: required
 language: python
-python:
-  - "2.7"
+python: "2.7"
 
 env:
   global:
     - ANSIBLE_CONFIG=tests/ansible.cfg
   matrix:
   - ANSIBLE_VERSION=latest
+  #- ANSIBLE_VERSION=2.3.2.0
   - ANSIBLE_VERSION=2.2.2.0
+  - ANSIBLE_VERSION=2.1.6.0
 
 branches:
   only:
@@ -20,8 +21,12 @@ before_install:
   - sudo apt-get update -qq
 
   # update SSL libraries
-  - sudo apt-get install -y python-urllib3 python-openssl python-pyasn1
+  - sudo apt-get -y install python-urllib3 python-openssl python-pyasn1
   - sudo pip install ndg-httpsclient
+
+  # install ruby & inspec
+  - sudo apt-get -y install ruby ruby-dev gcc make
+  - sudo gem install inspec
 
 
 install:
@@ -33,9 +38,10 @@ install:
 script:
   # Ansible syntax check
   - ansible-playbook -i tests/inventory --connection=local tests/test.yml --syntax-check
-
   # Install role
   - ansible-playbook -i tests/inventory --connection=local tests/test.yml -vvvvv
-
   # lint
   - ansible-lint .
+
+  # InSpec
+  - inspec exec tests/default
