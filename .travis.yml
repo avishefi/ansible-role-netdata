@@ -1,0 +1,32 @@
+---
+sudo: required
+language: python
+python:
+  - "2.7"
+
+env:
+  - ANSIBLE_VERSION=latest
+  - ANSIBLE_VERSION=2.2.2.0
+
+branches:
+  only:
+    - master
+
+before_install:
+  # update quietly
+  - sudo apt-get update -qq
+
+install:
+  - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible; else pip install ansible==$ANSIBLE_VERSION; fi
+  - pip install ansible-lint
+  - ansible --version
+
+script:
+  # Ansible syntax check
+  - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
+
+  # Install role
+  - ansible-playbook -i tests/inventory tests/test.yml -vvvvv
+
+  # lint
+  - ansible-lint .
