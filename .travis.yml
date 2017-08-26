@@ -24,13 +24,9 @@ before_install:
   - sudo apt-get -y install python-urllib3 python-openssl python-pyasn1
   - sudo pip install ndg-httpsclient
 
-  # alias inspec using docker
-  - shopt -s expand_aliases
-  - docker pull chef/inspec
-  - alias inspec='docker run -it --rm -v $(pwd):/share chef/inspec'
   # install ruby & inspec
-  #- sudo apt-get -y install ruby
-  #- curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec
+  - sudo apt-get -y install ruby
+  - curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P inspec
 
 
 install:
@@ -44,8 +40,7 @@ script:
   - ansible-playbook -i tests/inventory --connection=local tests/test.yml --syntax-check
   # Install role
   - ansible-playbook -i tests/inventory --connection=local tests/test.yml -vvvvv
-  # lint
+
   - ansible-lint .
 
-  # InSpec
-  - sudo inspec exec tests/default
+  - inspec exec tests/default
