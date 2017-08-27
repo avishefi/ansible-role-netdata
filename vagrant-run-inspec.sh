@@ -1,10 +1,13 @@
 #!/bin/bash
+if [[ "${DEBUG:-}" == "1" ]]; then
+  set -x
+fi
+
 IFS='' _vagrant_ssh_config=$(vagrant ssh-config)
 _vagconf() {
   echo "$_vagrant_ssh_config" | grep -E "$1\s" 2>/dev/null | awk '{print $2}' 2>/dev/null | tr -d '[:space:]'
 }
 
-set -x
 
 hostname=$(_vagconf 'HostName')
 username=$(_vagconf 'User')
