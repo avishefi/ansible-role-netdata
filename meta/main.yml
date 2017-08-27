@@ -1,17 +1,30 @@
 galaxy_info:
   author: Avi Shefi
-  description: Install netdata using pre-packaged *.run installer (makeshell)
+  description: Install netdata using its makeself-based *.run installer
+  company:
 
   license: MIT
 
-  min_ansible_version: 2.0
+  min_ansible_version: 2.1
 
   platforms:
     - name: EL
       versions:
         - 6
         - 7
+    - name: Ubuntu
+      versions:
+        - precise
+        - trusty
+        - xenial
+    - name: Debian
+      versions:
+        - jessie
+        - wheezy
 
-  galaxy_tags: [netdata]
+  galaxy_tags:
+    - netdata
+    - monitoring
+    - performance
 
 dependencies: []
