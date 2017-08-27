@@ -27,6 +27,8 @@ The following default variables are also configurable:
 - `netdata_kickstart_download_url` is the kickstart shell script to install the latest netdata version
 - `netdata_base_url` is the base binary packages GitHub URL
 - `netdata_installer_tmp_dir` is the temporary location where the kickstart script or makeself *.run file is downloaded to, default: `/tmp` (assumes it already exists)
+- `netdata_conf`, `netdata_logrotate_conf` and `netdata_systemd_unit` control the location of the templated configuration files
+- Systemd unit configurable variables: `netdata_user`, `netdata_group`, `netdata_binary`, `netdata_oom_score`, `netdata_systemd_timeout_stop_sec`
 
 Example Playbook
 ----------------
