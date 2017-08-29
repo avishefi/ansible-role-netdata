@@ -49,3 +49,7 @@ script:
   - echo "Waiting 10 seconds for netdata to start..." && sleep 10
   - echo "Running netdata InSpec tests"
   - inspec exec tests/default
+
+
+notifications:
+    webhooks: https://galaxy.ansible.com/api/v1/notifications/

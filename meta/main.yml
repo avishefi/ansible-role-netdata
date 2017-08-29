@@ -1,7 +1,7 @@
 galaxy_info:
   author: Avi Shefi
   description: Install netdata using its makeself-based *.run installer
-  company:
+  company: 
 
   license: MIT
 
@@ -24,7 +24,9 @@ galaxy_info:
 
   galaxy_tags:
     - netdata
+    - realtime
     - monitoring
     - performance
+    - dashboard
 
 dependencies: []
