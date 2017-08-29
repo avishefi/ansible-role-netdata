@@ -1,7 +1,7 @@
 galaxy_info:
   author: Avi Shefi
   description: An Ansible role to install netdata without compilation
-  company: 
+  company:
 
   license: MIT
 
