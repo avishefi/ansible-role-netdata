@@ -1,6 +1,6 @@
 galaxy_info:
   author: Avi Shefi
-  description: Install netdata using its makeself-based *.run installer
+  description: An Ansible role to install netdata without compilation
   company: 
 
   license: MIT
