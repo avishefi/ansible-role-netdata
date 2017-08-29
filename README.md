@@ -37,7 +37,7 @@ Example Playbook
 - hosts: all
   become: yes
   roles:
-  - { role: ansible-role-netdata }
+  - { role: avishefi.netdata }
 ```
 
 Testing
